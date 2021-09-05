@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Peso en otro planeta</title>
+   </head>
+   <body>
+      <h1>Tu peso en otro planeta</h1>
+      <form>
+         <label for="peso">Ingresa tu peso en la tierra</label>
+         <input type="number" id="peso" />
+         <button type="button" onclick="PesoOtrosPlanetas()">Calcular</button>
+      </form>
+      <p id="respuesta"></p>
+      <script>
+         function PesoOtrosPlanetas() {
+            var pesoTierra = document.getElementById("peso").value;
+            
+            var respuesta = document.getElementById("respuesta");
+            const G_TIERRA = 9.8;
+            const G_MARTE = 3.7;
+            const G_JUPITER = 24.8;
+
+            var pesoMarte = pesoTierra * (G_MARTE / G_TIERRA);
+            pesoMarte=pesoMarte.toFixed(2);
+            var pesoJupiter = pesoTierra * (G_JUPITER / G_TIERRA);
+            pesoJupiter=pesoJupiter.toFixed(2);
+            respuesta.innerHTML="tu peso en Marte es <strong>"+pesoMarte+" KG </strong>  y tu peso en Jupiter es <strong>"+pesoJupiter+" KG </strong>";
+         }
+      </script>
+   </body>
+</html>
