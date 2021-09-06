@@ -1,9 +1,12 @@
 var canvas = document.getElementById("canvas");
 var lienzo = canvas.getContext("2d");
 var areaDibujo = canvas.getContext("2d");
+// window.onkeyup = moverse;
+document.addEventListener("keydown",moverse);
 canvas.addEventListener("mousedown", clickDownMouse);
 canvas.addEventListener("mousemove", dibujarConMouse);
 canvas.addEventListener("mouseup", (levantarMouse) => {active=false});
+var movimientoTeclas=3;
 var active = false;
 var color = "blue";
 var posX = 150;
@@ -32,35 +35,35 @@ function dibujarConMouse(evento) {
 function moverse(event) {
    switch (event.keyCode) {
       case teclas.ARRIBA:
-         if (posY - 10 >= 0) {
-            dibujarLinea(color, posX, posY, posX, posY - 10, areaDibujo);
-            posY = posY - 10;
+         if (posY - movimientoTeclas >= 0) {
+            dibujarLinea(color, posX, posY, posX, posY - movimientoTeclas, areaDibujo);
+            posY = posY - movimientoTeclas;
             console.log("Arriba posy = " + posY);
          }
 
          break;
 
       case teclas.ABAJO:
-         if (posY + 10 <= canvas.height) {
-            dibujarLinea(color, posX, posY, posX, posY + 10, areaDibujo);
-            posY = posY + 10;
+         if (posY + movimientoTeclas <= canvas.height) {
+            dibujarLinea(color, posX, posY, posX, posY + movimientoTeclas, areaDibujo);
+            posY = posY + movimientoTeclas;
             console.log("abajo posY = " + posY);
          }
 
          break;
 
       case teclas.DERECHA:
-         if (posX + 10 <= canvas.width) {
-            dibujarLinea(color, posX, posY, posX + 10, posY, areaDibujo);
-            posX = posX + 10;
+         if (posX + movimientoTeclas <= canvas.width) {
+            dibujarLinea(color, posX, posY, posX + movimientoTeclas, posY, areaDibujo);
+            posX = posX + movimientoTeclas;
             console.log("derecha posX = " + posX);
          }
          break;
 
       case teclas.IZQUIERDA:
-         if (posX - 10 >= 0) {
-            dibujarLinea(color, posX, posY, posX - 10, posY, areaDibujo);
-            posX = posX - 10;
+         if (posX - movimientoTeclas >= 0) {
+            dibujarLinea(color, posX, posY, posX - movimientoTeclas, posY, areaDibujo);
+            posX = posX - movimientoTeclas;
             console.log("izquierda posX = " + posX);
          }
          break;
