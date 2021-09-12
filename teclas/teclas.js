@@ -1,6 +1,11 @@
 var canvas = document.getElementById("canvas");
 var lienzo = canvas.getContext("2d");
 var areaDibujo = canvas.getContext("2d");
+var botonReset = document.getElementById("reset");
+
+botonReset.addEventListener("click",limpiar=>{
+   lienzo.clearRect(0, 0, canvas.width, canvas.height);
+})
 // window.onkeyup = moverse;
 document.addEventListener("keydown",moverse);
 canvas.addEventListener("mousedown", clickDownMouse);
